@@ -1,11 +1,15 @@
+import { Route } from "react-router-dom";
+
 import "./styles/index.css";
 
 import RegistrationForm from "./components/RegistrationForm";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
     <div className="App">
-      <RegistrationForm />
+      <Route path="/register" component={RegistrationForm}/>
+      <Route path="/login" component={LoginForm}/>
     </div>
   );
 }

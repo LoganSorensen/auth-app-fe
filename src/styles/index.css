@@ -240,3 +240,6 @@ a {
 .auth-form .switch-auth a {
   color: #2d9cdb;
 }
+.login-form h2 {
+  margin-bottom: 2.72rem;
+}
