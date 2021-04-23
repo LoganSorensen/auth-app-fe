@@ -1,0 +1,242 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+*,
+html {
+  font-family: 'Noto Sans', sans-serif;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/notosans/v12/o-0IIpQlx3QUlC5A4PNb4g.ttf) format('truetype');
+}
+a {
+  text-decoration: none;
+}
+.auth-form {
+  width: 47.4rem;
+  padding: 5.1rem 5.9rem 4.3rem;
+  margin: 10rem auto 0;
+  border: 1px solid #bdbdbd;
+  border-radius: 24px;
+}
+.auth-form .logo {
+  margin-bottom: 3rem;
+}
+.auth-form h2 {
+  color: #333333;
+  font-size: 1.8rem;
+  font-weight: 600;
+  width: 30rem;
+  margin-bottom: 1.45rem;
+}
+.auth-form p {
+  color: #333333;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 21.79px;
+  letter-spacing: -0.035em;
+  margin-bottom: 3.46rem;
+}
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3.2rem;
+}
+.auth-form form .input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.25rem;
+}
+.auth-form form .email-wrapper {
+  margin-bottom: 1.45rem;
+}
+.auth-form form input {
+  width: 100%;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+  color: #333333;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding: 1.3rem;
+  padding-left: 4.69rem;
+}
+.auth-form form input::placeholder {
+  color: #828282;
+}
+.auth-form form .lock-icon,
+.auth-form form .email-icon {
+  color: #828282;
+  position: absolute;
+  left: 1.4rem;
+}
+.auth-form form button {
+  width: 100%;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background-color: #2f80ed;
+  padding: 0.7rem 0 0.9rem;
+}
+.auth-form .alt-auth-opt {
+  text-align: center;
+  color: #828282;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 2.25rem;
+}
+.auth-form .alt-auth-btns {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.7rem;
+}
+.auth-form .logo-btn {
+  cursor: pointer;
+}
+.auth-form .switch-auth {
+  text-align: center;
+  color: #828282;
+  font-size: 1.4rem;
+}
+.auth-form .switch-auth a {
+  color: #2d9cdb;
+}
