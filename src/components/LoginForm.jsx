@@ -14,13 +14,11 @@ const LoginForm = () => {
         <Logo />
       </div>
       <h2>Login</h2>
-
       <form>
         <div className="input-wrapper email-wrapper">
           <span class="material-icons email-icon">email</span>
           <input type="email" placeholder="Email" />
         </div>
-
         <div className="input-wrapper">
           <span class="material-icons lock-icon">lock</span>
           <input type="password" placeholder="Password" />
