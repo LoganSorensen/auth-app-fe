@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ReactComponent as Logo } from "../assets/devchallenges.svg";
+import UserInfo from "./userInfo";
 
 const ProfilePage = () => {
   return (
@@ -15,7 +16,7 @@ const ProfilePage = () => {
       </header>
       <h2>Personal info</h2>
       <p>Basic info, like your name and photo</p>
-
+      <UserInfo />
     </div>
   );
 };
