@@ -134,7 +134,7 @@ html {
 }
 *,
 html {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 @font-face {
   font-family: 'Noto Sans';
@@ -145,6 +145,11 @@ html {
 }
 a {
   text-decoration: none;
+}
+.user-info h3,
+.edit-user-info h3 {
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
 }
 .auth-form {
   width: 47.4rem;
@@ -291,10 +296,6 @@ a {
   padding: 3.9rem 4.9rem;
   border-bottom: 1px solid #d3d3d3;
 }
-.user-info .user-info-header h3 {
-  font-size: 2.4rem;
-  margin-bottom: 0.4rem;
-}
 .user-info .user-info-header span {
   font-size: 1.3rem;
   font-weight: 500;
@@ -339,4 +340,83 @@ a {
 }
 .user-info #password-row {
   border: none;
+}
+.edit-user-info {
+  width: 90rem;
+  margin: 0 auto;
+}
+.edit-user-info a {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  color: #2d9cdb;
+  width: fit-content;
+  margin-bottom: 2.4rem;
+}
+.edit-user-info form {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 3rem 4.8rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.edit-user-info form span {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #828282;
+}
+.edit-user-info form label {
+  color: #4f4f4f;
+  margin-bottom: 0.38rem;
+}
+.edit-user-info form input {
+  border: 1px solid #828282;
+  border-radius: 12px;
+  padding: 1.7rem 1.8rem;
+  color: #bdbdbd;
+  margin-bottom: 2.4rem;
+}
+.edit-user-info form button[type="submit"] {
+  width: 8.2rem;
+  color: white;
+  font-weight: 500;
+  font-size: 1.6rem;
+  background-color: #2f80ed;
+  padding: 0.8rem 2.4rem;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+}
+.edit-user-info .edit-image {
+  margin: 2.6rem 0 3.2rem;
+  display: flex;
+  align-items: center;
+  min-width: fit-content;
+}
+.edit-user-info .edit-image .image-cont {
+  width: 7.2rem;
+  height: 7.2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-right: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.edit-user-info .edit-image .image-cont span {
+  color: white;
+  position: absolute;
+  font-size: 2.5rem;
+}
+.edit-user-info .edit-image button {
+  text-transform: uppercase;
+  color: #828282;
+  font-weight: 500;
+  font-size: 1.3rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
