@@ -6,9 +6,11 @@
     justify-content: space-between;
     margin-bottom: 4rem;
 
-    div {
+    .account {
       display: flex;
       align-items: center;
+      cursor: pointer;
+      position: relative;
     }
 
     .image-wrapper {
@@ -20,9 +22,14 @@
     }
 
     span {
+      transition: 0.4s ease;
       @media @dark {
         color: #e0e0e0;
       }
+    }
+
+    .rotate-arrow {
+      transform: rotate(180deg);
     }
 
     .user-name {
@@ -33,6 +40,65 @@
 
       @media @dark {
         color: #e0e0e0;
+      }
+    }
+
+    .account-options {
+      position: absolute;
+      top: 3.2rem + 2.7rem;
+      right: 0;
+      background-color: white;
+      flex-direction: column;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem 1.2rem;
+      @media @dark {
+        background-color: #252329;
+      }
+
+      button {
+        width: 16.5rem;
+        display: flex;
+        align-items: center;
+        padding: 0.95rem 1.16rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: #4f4f4f;
+        background-color: transparent;
+        cursor: pointer;
+        &:hover {
+          background-color: #f2f2f2;
+          @media @dark {
+            background-color: #3c3942;
+          }
+        }
+      }
+
+      button,
+      button span {
+        @media @dark {
+          color: #e0e0e0;
+        }
+      }
+
+      hr {
+        width: 100%;
+        border: none;
+        border-top: 1px solid #e0e0e0;
+        margin: 1.2rem 0;
+      }
+
+      .logout-btn,
+      .logout-btn span {
+        color: #eb5757;
+      }
+
+      span {
+        color: #4f4f4f;
+        margin-right: 1rem;
       }
     }
   }

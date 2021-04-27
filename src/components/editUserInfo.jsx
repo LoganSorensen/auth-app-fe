@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const EditUserInfo = () => {
+  const history = useHistory();
   const [userInfo, setUserInfo] = useState({
     name: "",
     bio: "",
@@ -17,6 +18,7 @@ const EditUserInfo = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(userInfo);
+    history.push('/profile')
   };
 
   return (
