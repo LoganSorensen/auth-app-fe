@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Route path="/register" component={RegistrationForm} />
       <Route path="/login" component={LoginForm} />
-      <Route exact path='/' component={ProfilePage} />
+      <Route path='/profile' component={ProfilePage} />
     </div>
   );
 }

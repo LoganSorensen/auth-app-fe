@@ -1,7 +1,12 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const UserInfo = () => {
-  const editInfo = () => {};
+  const history = useHistory();
+
+  const editInfo = () => {
+    history.push("/profile/edit");
+  };
 
   return (
     <div>

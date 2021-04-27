@@ -1,4 +1,5 @@
 import React from "react";
+import { Route } from "react-router-dom";
 
 import { ReactComponent as Logo } from "../assets/devchallenges.svg";
 import UserInfo from "./userInfo";
@@ -16,8 +17,8 @@ const ProfilePage = () => {
           
         </div>
       </header>
-      {/* <UserInfo /> */}
-      <EditUserInfo />
+      <Route exact path='/profile' component={UserInfo} />
+      <Route path='/profile/edit' component={EditUserInfo} />
     </div>
   );
 };

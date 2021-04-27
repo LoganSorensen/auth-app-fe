@@ -372,11 +372,15 @@ a {
   margin-bottom: 0.38rem;
 }
 .edit-user-info form input {
+  color: #4f4f4f;
+  width: 41.7rem;
   border: 1px solid #828282;
   border-radius: 12px;
   padding: 1.7rem 1.8rem;
-  color: #bdbdbd;
   margin-bottom: 2.4rem;
+}
+.edit-user-info form input::placeholder {
+  color: #bdbdbd;
 }
 .edit-user-info form button[type="submit"] {
   width: 8.2rem;
