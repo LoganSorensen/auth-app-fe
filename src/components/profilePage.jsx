@@ -1,15 +1,15 @@
 import React from "react";
-import { Route, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { ReactComponent as Logo } from "../assets/devchallenges.svg";
 import { ReactComponent as LogoLight } from "../assets/devchallenges-light.svg";
 import UserInfo from "./userInfo";
 import EditUserInfo from "./editUserInfo";
+import PrivateRoute from "./PrivateRoute";
 
 const ProfilePage = () => {
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
     .matches;
-
   const history = useHistory();
 
   const displayAccountOptions = () => {
@@ -23,9 +23,9 @@ const ProfilePage = () => {
   };
 
   const logout = () => {
-    console.log("loggin out");
-    localStorage.clear("token");
-    history.push('/login')
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    history.push("/login");
   };
 
   return (
@@ -37,7 +37,7 @@ const ProfilePage = () => {
           <span className="user-name">Xanthe Neal</span>
           <span className="material-icons dropdown-arrow">arrow_drop_down</span>
           <div className="account-options" style={{ display: "none" }}>
-            <button onClick={() => history.push('/profile')}>
+            <button onClick={() => history.push("/profile")}>
               <span className="material-icons">account_circle</span>
               My Profile
             </button>
@@ -53,8 +53,8 @@ const ProfilePage = () => {
           </div>
         </div>
       </header>
-      <Route exact path="/profile" component={UserInfo} />
-      <Route path="/profile/edit" component={EditUserInfo} />
+      <PrivateRoute exact path="/" component={UserInfo} />
+      <PrivateRoute path="/edit" component={EditUserInfo} />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import { ReactComponent as Logo } from "../assets/devchallenges.svg";
 import { ReactComponent as LogoLight } from "../assets/devchallenges-light.svg";
@@ -23,6 +24,12 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(userCredentials);
+    axios
+      .post("http://localhost:5000/users/register")
+      .then(res => {
+        console.log(res)
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

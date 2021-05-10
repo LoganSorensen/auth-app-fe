@@ -226,6 +226,11 @@ a {
 .auth-form form input::placeholder {
   color: #828282;
 }
+@media (prefers-color-scheme: dark) {
+  .auth-form form input {
+    color: #e0e0e0;
+  }
+}
 .auth-form form .lock-icon,
 .auth-form form .email-icon {
   color: #828282;

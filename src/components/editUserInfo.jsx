@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
+
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const EditUserInfo = () => {
   const history = useHistory();
@@ -10,20 +12,42 @@ const EditUserInfo = () => {
     email: "",
     password: "",
   });
+  const userId = localStorage.getItem("id");
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`http://localhost:5000/users/${userId}`)
+      .then((res) => {
+        setUserInfo(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, [userId]);
 
   const handleChange = (e) => {
-    setUserInfo({...userInfo, [e.target.name]: e.target.value });
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userInfo);
-    history.push('/profile')
+
+    const entries = Object.entries(userInfo);
+    const updateProps = [];
+
+    entries.forEach((entry) => {
+      updateProps.push({ propName: entry[0], value: entry[1] });
+    });
+
+    axiosWithAuth()
+      .put(`http://localhost:5000/users/${userId}`, updateProps)
+      .then((res) => {
+        history.push("/");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
     <div className="edit-user-info">
-      <Link to="/profile">
+      <Link to="/">
         <span className="material-icons">chevron_left</span>Back
       </Link>
       <form onSubmit={handleSubmit}>
@@ -72,7 +96,7 @@ const EditUserInfo = () => {
           value={userInfo.email}
           onChange={handleChange}
         />
-        <label htmlFor="edit-password-field">Password</label>
+        {/* <label htmlFor="edit-password-field">Password</label>
         <input
           type="password"
           id="edit-password-field"
@@ -80,7 +104,7 @@ const EditUserInfo = () => {
           name="password"
           value={userInfo.password}
           onChange={handleChange}
-        />
+        /> */}
         <button type="submit">Save</button>
       </form>
     </div>

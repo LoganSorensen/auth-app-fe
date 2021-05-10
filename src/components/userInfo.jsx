@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const UserInfo = () => {
   const history = useHistory();
 
+  const userId = localStorage.getItem("id");
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`http://localhost:5000/users/${userId}`)
+      .then((res) => {
+        setUserInfo(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, [userId]);
+
   const editInfo = () => {
-    history.push("/profile/edit");
+    history.push("/edit");
   };
 
   return (
@@ -26,21 +39,19 @@ const UserInfo = () => {
         </div>
         <div className="user-info-row">
           <span className="row-name">Name</span>
-          <span className="row-data">Xanthe Neal</span>
+          <span className="row-data">{userInfo.name}</span>
         </div>
         <div className="user-info-row">
           <span className="row-name">Bio</span>
-          <span className="row-data">
-            I am a software developer and a big fan of devchallenges...
-          </span>
+          <span className="row-data">{userInfo.bio}</span>
         </div>
         <div className="user-info-row">
           <span className="row-name">Phone</span>
-          <span className="row-data">908249274292</span>
+          <span className="row-data">{userInfo.phone}</span>
         </div>
         <div className="user-info-row">
           <span className="row-name">Email</span>
-          <span className="row-data">xanthe.neal@gmail.com</span>
+          <span className="row-data">{userInfo.email}</span>
         </div>
         <div className="user-info-row" id="password-row">
           <span className="row-name">Password</span>
