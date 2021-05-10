@@ -505,7 +505,8 @@ a {
     color: #828282;
   }
 }
-.edit-user-info form input {
+.edit-user-info form input,
+.edit-user-info form textarea {
   color: #4f4f4f;
   width: 41.7rem;
   border: 1px solid #828282;
@@ -513,13 +514,20 @@ a {
   padding: 1.7rem 1.8rem;
   margin-bottom: 2.4rem;
 }
-.edit-user-info form input::placeholder {
+.edit-user-info form input::placeholder,
+.edit-user-info form textarea::placeholder {
   color: #bdbdbd;
 }
 @media (prefers-color-scheme: dark) {
-  .edit-user-info form input {
+  .edit-user-info form input,
+  .edit-user-info form textarea {
     color: #e0e0e0;
   }
+}
+.edit-user-info form textarea {
+  min-height: 9rem;
+  background-color: transparent;
+  resize: none;
 }
 .edit-user-info form button[type="submit"] {
   width: 8.2rem;
@@ -554,7 +562,7 @@ a {
   position: absolute;
   font-size: 2.5rem;
 }
-.edit-user-info .edit-image button {
+.edit-user-info .edit-image label {
   text-transform: uppercase;
   color: #828282;
   font-weight: 500;
@@ -562,4 +570,7 @@ a {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+.edit-user-info .edit-image input[type='file'] {
+  display: none;
 }

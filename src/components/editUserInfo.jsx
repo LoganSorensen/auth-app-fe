@@ -11,7 +11,9 @@ const EditUserInfo = () => {
     phone: "",
     email: "",
     password: "",
+    photo: "",
   });
+  const [userImage, setUserImage] = useState("");
   const userId = localStorage.getItem("id");
 
   useEffect(() => {
@@ -27,18 +29,29 @@ const EditUserInfo = () => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
+  const addImage = (e) => {
+    const file = e.target.files[0];
+    setUserImage(file);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const entries = Object.entries(userInfo);
     const updateProps = [];
+    const formData = new FormData();
 
     entries.forEach((entry) => {
       updateProps.push({ propName: entry[0], value: entry[1] });
     });
 
+    const jsonProps = JSON.stringify(updateProps);
+
+    formData.append("data", jsonProps);
+    formData.append("userImage", userImage);
+
     axiosWithAuth()
-      .put(`http://localhost:5000/users/${userId}`, updateProps)
+      .put(`http://localhost:5000/users/${userId}`, formData)
       .then((res) => {
         history.push("/");
       })
@@ -50,14 +63,20 @@ const EditUserInfo = () => {
       <Link to="/">
         <span className="material-icons">chevron_left</span>Back
       </Link>
-      <form onSubmit={handleSubmit}>
+      <form id="update-form" onSubmit={handleSubmit}>
         <h3>Change Info</h3>
         <span>Changes will be reflected on every service</span>
         <div className="edit-image">
           <div className="image-cont">
             <span className="material-icons">photo_camera</span>
           </div>
-          <button type="button">Change Photo</button>
+          <label htmlFor="file-upload">Change Photo</label>
+          <input
+            type="file"
+            name="photo"
+            id="file-upload"
+            onChange={addImage}
+          />
         </div>
 
         <label htmlFor="edit-name-field">Name</label>
@@ -70,7 +89,8 @@ const EditUserInfo = () => {
           onChange={handleChange}
         />
         <label htmlFor="edit-bio-field">Bio</label>
-        <input
+        <textarea
+          className="bio-input"
           type="text"
           id="edit-bio-field"
           placeholder="Enter your bio..."

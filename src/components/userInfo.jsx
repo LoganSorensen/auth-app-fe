@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-const UserInfo = () => {
+const UserInfo = ({ userInfo }) => {
   const history = useHistory();
-
-  const userId = localStorage.getItem("id");
-  const [userInfo, setUserInfo] = useState({});
-
-  useEffect(() => {
-    axiosWithAuth()
-      .get(`http://localhost:5000/users/${userId}`)
-      .then((res) => {
-        setUserInfo(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, [userId]);
-
-  const editInfo = () => {
-    history.push("/edit");
-  };
 
   return (
     <div>
@@ -31,7 +14,7 @@ const UserInfo = () => {
             <h3>Profile</h3>
             <span>Some info may be visible to other people</span>
           </div>
-          <button onClick={editInfo}>Edit</button>
+          <button onClick={() => history.push("/edit")}>Edit</button>
         </div>
         <div className="user-info-row photo-row">
           <span className="row-name">Photo</span>

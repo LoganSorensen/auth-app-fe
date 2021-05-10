@@ -38,7 +38,7 @@
       }
     }
 
-    input {
+    input, textarea {
       color: #4f4f4f;
       width: 41.7rem;
       border: 1px solid #828282;
@@ -52,6 +52,12 @@
       @media @dark {
         color: #e0e0e0;
       }
+    }
+
+    textarea {
+      min-height: 9rem;
+      background-color: transparent;
+      resize: none;
     }
 
     button[type="submit"] {
@@ -91,7 +97,7 @@
       }
     }
 
-    button {
+    label {
       text-transform: uppercase;
       color: #828282;
       font-weight: 500;
@@ -99,6 +105,10 @@
       background-color: transparent;
       border: none;
       cursor: pointer;
+    }
+
+    input[type='file'] {
+display: none;
     }
   }
 }
