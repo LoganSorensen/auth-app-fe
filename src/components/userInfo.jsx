@@ -18,7 +18,9 @@ const UserInfo = ({ userInfo }) => {
         </div>
         <div className="user-info-row photo-row">
           <span className="row-name">Photo</span>
-          <div className="image-wrapper"></div>
+          <div className="image-wrapper">
+            <img src={userInfo.photo} alt="" />
+          </div>
         </div>
         <div className="user-info-row">
           <span className="row-name">Name</span>

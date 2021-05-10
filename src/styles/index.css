@@ -163,6 +163,12 @@ a {
     background-color: #252329;
   }
 }
+.image-wrapper {
+  overflow: hidden;
+}
+.image-wrapper img {
+  width: 100%;
+}
 .auth-form {
   width: 47.4rem;
   padding: 5.1rem 5.9rem 4.3rem;
@@ -546,7 +552,7 @@ a {
   align-items: center;
   min-width: fit-content;
 }
-.edit-user-info .edit-image .image-cont {
+.edit-user-info .edit-image .image-wrapper {
   width: 7.2rem;
   height: 7.2rem;
   background: rgba(0, 0, 0, 0.2);
@@ -557,7 +563,7 @@ a {
   justify-content: center;
   position: relative;
 }
-.edit-user-info .edit-image .image-cont span {
+.edit-user-info .edit-image .image-wrapper span {
   color: white;
   position: absolute;
   font-size: 2.5rem;

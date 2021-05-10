@@ -21,6 +21,7 @@ const EditUserInfo = () => {
       .get(`http://localhost:5000/users/${userId}`)
       .then((res) => {
         setUserInfo(res.data);
+        // setUserImage(res.data.photo)
       })
       .catch((err) => console.log(err));
   }, [userId]);
@@ -48,7 +49,7 @@ const EditUserInfo = () => {
     const jsonProps = JSON.stringify(updateProps);
 
     formData.append("data", jsonProps);
-    formData.append("userImage", userImage);
+    if (userImage) formData.append("userImage", userImage);
 
     axiosWithAuth()
       .put(`http://localhost:5000/users/${userId}`, formData)
@@ -57,6 +58,8 @@ const EditUserInfo = () => {
       })
       .catch((err) => console.log(err));
   };
+
+  console.log(userImage)
 
   return (
     <div className="edit-user-info">
@@ -67,8 +70,9 @@ const EditUserInfo = () => {
         <h3>Change Info</h3>
         <span>Changes will be reflected on every service</span>
         <div className="edit-image">
-          <div className="image-cont">
+          <div className="image-wrapper">
             <span className="material-icons">photo_camera</span>
+            <img src={userInfo.photo} alt="" />
           </div>
           <label htmlFor="file-upload">Change Photo</label>
           <input

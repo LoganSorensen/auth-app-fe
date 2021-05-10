@@ -48,7 +48,9 @@ const ProfilePage = () => {
       <header>
         {prefersDarkMode ? <LogoLight /> : <Logo />}
         <div className="account" onClick={displayAccountOptions}>
-          <div className="image-wrapper"></div>
+          <div className="image-wrapper">
+            <img src={userInfo.photo} alt="" />
+          </div>
           <span className="user-name">
             {userInfo.name ? userInfo.name : userInfo.email}
           </span>
