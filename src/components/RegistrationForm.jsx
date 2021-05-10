@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
 import { ReactComponent as Logo } from "../assets/devchallenges.svg";
@@ -16,6 +16,7 @@ const RegistrationForm = () => {
     email: "",
     password: "",
   });
+  const history = useHistory();
 
   const handleChange = (e) => {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
@@ -23,11 +24,12 @@ const RegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userCredentials);
     axios
-      .post("http://localhost:5000/users/register")
-      .then(res => {
-        console.log(res)
+      .post("http://localhost:5000/users/register", userCredentials)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("id", res.data.id);
+        history.push("/");
       })
       .catch((err) => console.log(err));
   };
