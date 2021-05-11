@@ -14,6 +14,7 @@ const EditUserInfo = () => {
     photo: "",
   });
   const [userImage, setUserImage] = useState("");
+  const [imagePreview, setImagePreview] = useState(null)
   const userId = localStorage.getItem("id");
 
   useEffect(() => {
@@ -33,6 +34,10 @@ const EditUserInfo = () => {
   const addImage = (e) => {
     const file = e.target.files[0];
     setUserImage(file);
+
+    // create a temporary local URL for the file
+    const preview = URL.createObjectURL(file)
+    setImagePreview(preview)
   };
 
   const handleSubmit = (e) => {
@@ -42,12 +47,15 @@ const EditUserInfo = () => {
     const updateProps = [];
     const formData = new FormData();
 
+    // format the updated user info
     entries.forEach((entry) => {
       updateProps.push({ propName: entry[0], value: entry[1] });
     });
 
+    // convert the data to json
     const jsonProps = JSON.stringify(updateProps);
 
+    // add the update props (and the new image if applicable) to the formData
     formData.append("data", jsonProps);
     if (userImage) formData.append("userImage", userImage);
 
@@ -58,8 +66,6 @@ const EditUserInfo = () => {
       })
       .catch((err) => console.log(err));
   };
-
-  console.log(userImage)
 
   return (
     <div className="edit-user-info">
@@ -72,7 +78,7 @@ const EditUserInfo = () => {
         <div className="edit-image">
           <div className="image-wrapper">
             <span className="material-icons">photo_camera</span>
-            <img src={userInfo.photo} alt="" />
+            <img src={imagePreview ? imagePreview : userInfo.photo} alt="" />
           </div>
           <label htmlFor="file-upload">Change Photo</label>
           <input
