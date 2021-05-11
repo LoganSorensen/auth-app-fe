@@ -7,7 +7,7 @@ import { ReactComponent as LogoLight } from "../assets/devchallenges-light.svg";
 import { ReactComponent as FacebookLogo } from "../assets/Facebook.svg";
 import { ReactComponent as TwitterLogo } from "../assets/Twitter.svg";
 import { ReactComponent as GithubLogo } from "../assets/Github.svg";
-import GoogleLoginBtn from './googleLoginBtn';
+import GoogleLoginBtn from "./googleLoginBtn";
 
 const LoginForm = () => {
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
@@ -29,7 +29,7 @@ const LoginForm = () => {
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("id", res.data.id);
-        history.push('/')
+        history.push("/");
       })
       .catch((err) => console.log(err));
   };
