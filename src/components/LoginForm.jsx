@@ -4,10 +4,10 @@ import axios from "axios";
 
 import { ReactComponent as Logo } from "../assets/devchallenges.svg";
 import { ReactComponent as LogoLight } from "../assets/devchallenges-light.svg";
-import { ReactComponent as GoogleLogo } from "../assets/Google.svg";
 import { ReactComponent as FacebookLogo } from "../assets/Facebook.svg";
 import { ReactComponent as TwitterLogo } from "../assets/Twitter.svg";
 import { ReactComponent as GithubLogo } from "../assets/Github.svg";
+import GoogleLoginBtn from './googleLoginBtn';
 
 const LoginForm = () => {
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
@@ -63,7 +63,7 @@ const LoginForm = () => {
       </form>
       <p className="alt-auth-opt">or continue with</p>
       <div className="alt-auth-btns">
-        <GoogleLogo className="logo-btn" />
+        <GoogleLoginBtn />
         <FacebookLogo className="logo-btn" />
         <TwitterLogo className="logo-btn" />
         <GithubLogo className="logo-btn" />

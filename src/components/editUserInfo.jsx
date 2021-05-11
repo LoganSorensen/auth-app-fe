@@ -14,7 +14,7 @@ const EditUserInfo = () => {
     photo: "",
   });
   const [userImage, setUserImage] = useState("");
-  const [imagePreview, setImagePreview] = useState(null)
+  const [imagePreview, setImagePreview] = useState(null);
   const userId = localStorage.getItem("id");
 
   useEffect(() => {
@@ -36,8 +36,8 @@ const EditUserInfo = () => {
     setUserImage(file);
 
     // create a temporary local URL for the file
-    const preview = URL.createObjectURL(file)
-    setImagePreview(preview)
+    const preview = URL.createObjectURL(file);
+    setImagePreview(preview);
   };
 
   const handleSubmit = (e) => {
