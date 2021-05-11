@@ -21,7 +21,7 @@ const ProfilePage = () => {
     axiosWithAuth()
       .get(`http://localhost:5000/users/${userId}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setUserInfo(res.data);
       })
       .catch((err) => console.log(err));
